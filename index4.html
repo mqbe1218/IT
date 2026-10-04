@@ -1,0 +1,3677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IQRA INSTITUTE OF IT AND TECHNICAL EDUCATION MANJHI PUR</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<style>
+/* ============================================
+   PART 1: MAIN STYLES
+   Layout, Colors, Typography, Base Structure
+   ============================================ */
+
+:root {
+  /* Default Theme (Ocean) */
+  --primary: #0f172a;
+  --primary-light: #1e293b;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #eff6ff;
+  --accent-rgb: 59, 130, 246;
+  --gradient-start: #3b82f6;
+  --gradient-end: #06b6d4;
+  
+  /* Neutrals */
+  --bg-primary: #fafafa;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-strong: #cbd5e1;
+  
+  /* Shadows */
+  --shadow-color: 220 3% 15%;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-glow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.875rem;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  
+  /* Layout */
+  --sidebar-width: 280px;
+  --sidebar-collapsed: 80px;
+  --header-height: 72px;
+  --container-max: 1400px;
+  --content-padding: var(--space-8);
+  
+  /* Animation */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 12px;
+  
+  /* Z-Index Scale */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+}
+
+/* Theme Variants */
+[data-theme="forest"] {
+  --primary: #064e3b;
+  --primary-light: #065f46;
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-light: #d1fae5;
+  --accent-rgb: 16, 185, 129;
+  --gradient-start: #10b981;
+  --gradient-end: #34d399;
+  --bg-primary: #f0fdf4;
+  --bg-secondary: #ecfdf5;
+  --bg-tertiary: #d1fae5;
+}
+
+[data-theme="sunset"] {
+  --primary: #7c2d12;
+  --primary-light: #9a3412;
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --accent-light: #ffedd5;
+  --accent-rgb: 249, 115, 22;
+  --gradient-start: #f97316;
+  --gradient-end: #fb923c;
+  --bg-primary: #fff7ed;
+  --bg-secondary: #ffedd5;
+  --bg-tertiary: #fed7aa;
+}
+
+[data-theme="berry"] {
+  --primary: #581c87;
+  --primary-light: #6b21a8;
+  --accent: #a855f7;
+  --accent-hover: #9333ea;
+  --accent-light: #f3e8ff;
+  --accent-rgb: 168, 85, 247;
+  --gradient-start: #a855f7;
+  --gradient-end: #c084fc;
+  --bg-primary: #faf5ff;
+  --bg-secondary: #f3e8ff;
+  --bg-tertiary: #e9d5ff;
+}
+
+[data-theme="midnight"] {
+  --primary: #020617;
+  --primary-light: #0f172a;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: #e0e7ff;
+  --accent-rgb: 99, 102, 241;
+  --gradient-start: #6366f1;
+  --gradient-end: #818cf8;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --border-light: #1e293b;
+  --glass-bg: rgba(30, 41, 59, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Override */
+[data-mode="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --border-light: #1e293b;
+  --glass-bg: rgba(30, 41, 59, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-color: 220 50% 3%;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Layout Structure */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-fixed);
+  overflow: hidden;
+}
+
+.sidebar-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+}
+
+.sidebar-logo {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: white;
+  letter-spacing: var(--letter-spacing-tight);
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar-settings-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item i {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, var(--accent-light), transparent);
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.2);
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+}
+
+.sidebar-footer {
+  padding: var(--space-4);
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.content-header {
+  height: var(--header-height);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.header-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.header-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header-btn .badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-card);
+}
+
+.content-body {
+  flex: 1;
+  padding: var(--content-padding);
+  overflow-y: auto;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* FIXED: Card Body Padding - Added proper spacing */
+.card-body {
+  padding: var(--space-6);
+}
+
+/* FIXED: Additional spacing for tab content cards */
+.tab-content > .card {
+  margin-bottom: var(--space-6);
+}
+
+.tab-content > .card > .card-body {
+  padding: var(--space-8);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: var(--space-5);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+/* FIXED: Single column form rows on mobile */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="email"],
+input[type="number"],
+input[type="file"],
+select, 
+textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  line-height: var(--line-height-normal);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-danger {
+  background: #ef4444;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+}
+
+.btn-lg {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--font-size-base);
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+th, td {
+  padding: var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badges & Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-primary {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+/* Settings Panel */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-modal-backdrop);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 420px;
+  max-width: 100%;
+  height: 100vh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: var(--z-modal);
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-2xl);
+}
+
+.settings-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.settings-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-6);
+}
+
+.settings-section {
+  margin-bottom: var(--space-8);
+}
+
+.settings-section-title {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.setting-item {
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.setting-item.active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.setting-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.25rem;
+  border: 1px solid var(--border);
+}
+
+.setting-item.active .setting-icon {
+  background: white;
+}
+
+.setting-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.setting-desc {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Toggle Switch */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  margin-bottom: var(--space-3);
+}
+
+.toggle-label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--duration-fast);
+}
+
+.toggle-switch.active {
+  background: var(--accent);
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.toggle-switch.active::after {
+  transform: translateX(22px);
+}
+
+/* Range Slider */
+.range-wrapper {
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  margin-bottom: var(--space-3);
+}
+
+.range-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.range-value {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid white;
+}
+
+/* Color Picker Grid */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-2);
+}
+
+.color-option {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.color-option.active {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--text-primary);
+}
+
+.color-option::after {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+}
+
+.color-option.active::after {
+  opacity: 1;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  z-index: var(--z-toast);
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 300px;
+  pointer-events: all;
+}
+
+.toast-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.toast-message {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* FIXED: Specific Tab Content Spacing */
+/* Insert Tab */
+#insert .card-body {
+  padding: var(--space-8);
+}
+
+#insert .form-row {
+  margin-bottom: var(--space-5);
+}
+
+#insert .table-wrap {
+  margin-top: var(--space-6);
+}
+
+#insert .list-actions {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+/* Animation Tab */
+#animation .anim-top {
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-6);
+}
+
+#animation .card {
+  margin-bottom: var(--space-6);
+}
+
+#animation .card-body {
+  padding: var(--space-8);
+}
+
+#animation .grid-items {
+  padding: var(--space-2);
+}
+
+/* Tests Tab */
+#tests .test-box {
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+#tests .test-box h3 {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+#tests .btn-box {
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-6);
+}
+
+#tests #leaderboard {
+  padding: var(--space-8);
+}
+
+#tests #leaderboard h3 {
+  margin-bottom: var(--space-4);
+}
+
+/* Diploma Tab */
+#diploma .diploma-wrap {
+  padding: var(--space-4);
+}
+
+#diploma .diploma-grid {
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+#diploma .d-card {
+  padding: var(--space-8);
+}
+
+#diploma .d-card header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+
+#diploma .card-body {
+  padding: var(--space-6) 0;
+}
+
+#diploma .card-body p {
+  margin-bottom: var(--space-3);
+}
+
+#diploma .card-body h4 {
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+#diploma .card-body ul {
+  margin-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+#diploma .card-body ul li {
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}
+
+#diploma .card-actions {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: var(--space-3);
+}
+
+#diploma .d-extra {
+  padding: var(--space-8);
+}
+
+#diploma .d-extra h4 {
+  margin-bottom: var(--space-4);
+}
+
+#diploma .d-extra ol {
+  margin-left: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+#diploma .d-extra ol li {
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}
+
+#diploma .d-extra p {
+  margin-bottom: var(--space-2);
+}
+
+/* Info Tab Specifics */
+#info .hero {
+  padding: var(--space-10);
+}
+
+#info .grid {
+  gap: var(--space-8);
+}
+
+#info .courses {
+  gap: var(--space-6);
+}
+
+#info .course-card {
+  padding: var(--space-6);
+}
+
+#info .facilities {
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+#info .fac-item {
+  padding: var(--space-6) var(--space-4);
+}
+
+#info .why-list {
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+#info .why-item {
+  padding: var(--space-5);
+}
+
+#info .teacher {
+  padding: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+/* Contact & Registration Tabs */
+#contact .card-body,
+#reg .card-body {
+  padding: var(--space-8);
+}
+
+#contact .form-row,
+#reg .form-row {
+  margin-bottom: var(--space-5);
+}
+
+/* Pictures Tab */
+#pictures .pic-gallery {
+  gap: var(--space-6);
+  padding: var(--space-4) 0;
+}
+
+#pictures .pic-box {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-body {
+    padding: var(--space-4);
+  }
+  
+  .card-body,
+  .tab-content > .card > .card-body,
+  #insert .card-body,
+  #animation .card-body,
+  #tests .test-box,
+  #tests #leaderboard,
+  #diploma .d-card,
+  #diploma .d-extra,
+  #contact .card-body,
+  #reg .card-body {
+    padding: var(--space-5);
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-panel {
+    width: 100%;
+  }
+  
+  .diploma-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .courses {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .facilities {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .why-list {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-6) !important;
+  }
+  
+  .hero .meta {
+    text-align: center;
+    margin-top: var(--space-4);
+  }
+  
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  nav .tab-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8125rem;
+  }
+  
+  .home-btns button {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .location-box h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.font-mono { font-family: var(--font-mono); }
+
+.mt-4 { margin-top: var(--space-4); }
+.mb-4 { margin-bottom: var(--space-4); }
+.p-4 { padding: var(--space-4); }
+
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: var(--space-4); }
+.flex-wrap { flex-wrap: wrap; }
+
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.gap-4 { gap: var(--space-4); }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* Print Styles */
+@media print {
+  .sidebar, .content-header, .settings-panel, .toast-container {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .tab-content {
+    display: block !important;
+    page-break-after: always;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+}
+</style>
+
+<style>
+/* ============================================
+   PART 2: ANIMATIONS & UI POLISH
+   Transitions, Hover Effects, Keyframes
+   ============================================ */
+
+/* Base Transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: var(--ease-out);
+  transition-duration: var(--duration-fast);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page Load Animation */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-container {
+  animation: pageLoad var(--duration-slow) var(--ease-out);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-content.active {
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+/* Slide Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Settings Panel Animation */
+.settings-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--duration-normal), visibility var(--duration-normal);
+}
+
+.settings-panel.active {
+  transform: translateX(0);
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+/* Sidebar Navigation Hover Effects */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-light), transparent);
+  transition: width var(--duration-normal) var(--ease-out);
+  z-index: 0;
+}
+
+.nav-item:hover::before {
+  width: 100%;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.nav-item.active:hover {
+  transform: none;
+}
+
+.nav-item i {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.nav-item:hover i {
+  transform: scale(1.1);
+}
+
+/* Button Hover Effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  transition: width var(--duration-slow), height var(--duration-slow);
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(var(--accent-rgb), 0.3);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+/* Card Hover Effects */
+.card {
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+/* Form Input Focus Effects */
+input:focus, 
+select:focus, 
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15), var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Table Row Hover */
+tr {
+  transition: background-color var(--duration-fast);
+}
+
+tr:hover {
+  background: var(--bg-secondary);
+}
+
+/* Header Button Effects */
+.header-btn {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.header-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.header-btn:active {
+  transform: scale(0.95);
+}
+
+/* Settings Button Spin */
+.sidebar-settings-btn {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.sidebar-settings-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(30deg);
+}
+
+/* Setting Item Hover */
+.setting-item {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.setting-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.setting-item.active {
+  animation: pulse var(--duration-slow) var(--ease-out);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Toggle Switch Animation */
+.toggle-switch {
+  transition: background var(--duration-fast);
+}
+
+.toggle-switch::after {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+/* Range Slider Animation */
+input[type="range"]::-webkit-slider-thumb {
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 8px rgba(var(--accent-rgb), 0.15);
+}
+
+/* Color Option Animation */
+.color-option {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.color-option.active {
+  animation: bounce var(--duration-slow) var(--ease-spring);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Toast Animation */
+.toast {
+  animation: toastSlideIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast.hiding {
+  animation: toastSlideOut var(--duration-normal) var(--ease-in) forwards;
+}
+
+@keyframes toastSlideOut {
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: var(--radius-full);
+  animation: spin 0.8s linear infinite;
+}
+
+/* Shimmer Effect for Loading States */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Gradient Border Animation */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+              linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) border-box;
+  border: 2px solid transparent;
+}
+
+/* Glow Effects */
+.glow {
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.5);
+  }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger Animation for Lists */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerIn var(--duration-normal) var(--ease-out) forwards;
+}
+
+@keyframes staggerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays */
+.stagger-item:nth-child(1) { animation-delay: 0ms; }
+.stagger-item:nth-child(2) { animation-delay: 50ms; }
+.stagger-item:nth-child(3) { animation-delay: 100ms; }
+.stagger-item:nth-child(4) { animation-delay: 150ms; }
+.stagger-item:nth-child(5) { animation-delay: 200ms; }
+
+/* Hover Lift Effect */
+.hover-lift {
+  transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Focus Visible for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Tab Content Specific Animations */
+#insert .card {
+  animation: slideUp var(--duration-slow) var(--ease-out);
+}
+
+#animation .grid-item {
+  animation: scaleIn var(--duration-normal) var(--ease-out);
+}
+
+#tests .test-box {
+  animation: slideUp var(--duration-slow) var(--ease-out);
+}
+
+#diploma .d-card {
+  animation: slideUp var(--duration-slow) var(--ease-out);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Picture Gallery Hover */
+.pic-box {
+  transition: all var(--duration-slow) var(--ease-out);
+}
+
+.pic-box img {
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.pic-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.pic-box:hover img {
+  transform: scale(1.1);
+}
+
+/* Course Card Hover */
+.course-card {
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.course-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--border);
+}
+
+/* Facility Item Hover */
+.fac-item {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.fac-item:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Why Item Hover */
+.why-item {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.why-item:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* Teacher Card Hover */
+.teacher {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.teacher:hover {
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+
+/* Diploma Card Specific */
+.d-card {
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.d-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+/* Syllabus Toggle Animation */
+.syllabus {
+  transition: all var(--duration-normal) var(--ease-out);
+  overflow: hidden;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+  transition: background var(--duration-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(var(--accent-rgb), 0.2);
+  color: var(--text-primary);
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">IQRA Institute</div>
+      <button class="sidebar-settings-btn" id="settingsBtn" title="Settings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-tab="home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </button>
+      <button class="nav-item" data-tab="insert">
+        <i class="fas fa-user-plus"></i>
+        <span>Insert</span>
+      </button>
+      <button class="nav-item" data-tab="animation">
+        <i class="fas fa-photo-video"></i>
+        <span>Animations</span>
+      </button>
+      <button class="nav-item" data-tab="tests">
+        <i class="fas fa-clipboard-check"></i>
+        <span>Tests</span>
+      </button>
+      <button class="nav-item" data-tab="diploma">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Diplomas</span>
+      </button>
+      <button class="nav-item" data-tab="info">
+        <i class="fas fa-info-circle"></i>
+        <span>Information</span>
+      </button>
+      <button class="nav-item" data-tab="contact">
+        <i class="fas fa-envelope"></i>
+        <span>Contact</span>
+      </button>
+      <button class="nav-item" data-tab="reg">
+        <i class="fas fa-edit"></i>
+        <span>Registration</span>
+      </button>
+      <button class="nav-item" data-tab="pictures">
+        <i class="fas fa-images"></i>
+        <span>Pictures</span>
+      </button>
+      <button class="nav-item" data-tab="video">
+        <i class="fas fa-video"></i>
+        <span>Videos</span>
+      </button>
+      <button class="nav-item" data-tab="projects">
+        <i class="fas fa-project-diagram"></i>
+        <span>Projects</span>
+      </button>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">IQ</div>
+        <div class="user-info">
+          <div class="user-name">IQRA Institute</div>
+          <div class="user-role">Admin Panel</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="content-header">
+      <h1 class="header-title" id="pageTitle">Dashboard</h1>
+      <div class="header-actions">
+        <button class="header-btn mobile-menu-btn" id="mobileMenuBtn" style="display: none;">
+          <i class="fas fa-bars"></i>
+        </button>
+        <button class="header-btn" id="notifBtn" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <button class="header-btn" id="helpBtn" title="Help">
+          <i class="fas fa-question-circle"></i>
+        </button>
+      </div>
+    </header>
+    
+    <div class="content-body">
+      
+      <!-- HOME TAB -->
+      <div id="home" class="tab-content active">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Welcome to IQRA Institute</h2>
+          </div>
+          <div class="card-body">
+            <h1 style="text-align:center; color:var(--text-primary); margin-bottom: 1rem;">WELCOME TO OUR IT CENTER WEBSITE</h1>
+            <h2 style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;">IQRA INSTITUTE OF IT AND TECHNICAL EDUCATION MANJHI PUR</h2>
+            
+            <div class="home-box" style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--border); margin-bottom: 2rem;">
+              <h3 style="color: var(--text-secondary); margin-bottom: 1rem;">This is Home Tab. Here you can see our Center Student's Pictures & Videos.</h3>
+              <h4 style="color: var(--text-muted); margin: 1.5rem 0;">TO SEE OUR CENTER PICTURES, VIDEOS & PROJECTS CLICK BELOW</h4>
+              <div class="home-btns" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="btn nav-item-btn" data-tab="pictures">Pictures</button>
+                <button class="btn nav-item-btn" data-tab="video">Videos</button>
+                <button class="btn nav-item-btn" data-tab="projects">Projects</button>
+              </div>
+            </div>
+            
+            <div class="location-box" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); padding: 2rem; border-radius: var(--radius-xl); color: white;">
+              <h1 style="color: white; margin-bottom: 0.5rem;">Center Location</h1>
+              <h3 style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">CLICK BELOW TO SEE CENTER DETAILS</h3>
+              <button class="btn btn-secondary" style="width: 100%; background: white; color: var(--primary);">
+                <div>
+                  <p>Near SunRise Middle Public School Manjhi Pur</p>
+                  <h2 style="font-size: 0.875rem; margin-top: 1rem;">Center Email:</h2>
+                  <p>mqbekhang@gmail.com</p>
+                  <h2 style="font-size: 0.875rem; margin-top: 1rem;">Center Number:</h2>
+                  <p>+923218215690</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSERT TAB -->
+      <div id="insert" class="tab-content">
+        <div class="wrap" style="max-width: 1200px;">
+          <div id="loginModal" class="modal show" style="display: flex; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+            <div class="modal-box card" style="max-width: 400px; width: 90%;">
+              <div class="card-body" style="padding: var(--space-8);">
+                <h2 style="margin-bottom: 1.5rem;">Admin Login</h2>
+                <input id="adminPassword" type="password" placeholder="Enter admin password" style="margin-bottom: 1rem;"/>
+                <button id="loginBtn" class="btn" style="width: 100%;">Login</button>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted);">Default password: <strong>admin123</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <header class="topbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1>Admin — Student Management</h1>
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+          </header>
+
+          <div class="main grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <section class="card" id="formSection">
+              <div class="card-body">
+                <h2 id="formTitle" style="margin-bottom: 1.5rem;">Add New Student</h2>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                  <label class="form-label">Photo</label>
+                  <div class="photo-wrap" style="display: flex; gap: 1rem; align-items: center;">
+                    <div id="photoPreview" class="photo-preview" style="width: 120px; height: 120px; border: 2px dashed var(--border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">No Photo</div>
+                    <input id="photoInput" type="file" accept="image/*">
+                  </div>
+                </div>
+
+                <div class="form-row two">
+                  <input id="s_name" placeholder="Full Name">
+                  <input id="s_fname" placeholder="Father Name">
+                </div>
+
+                <div class="form-row two">
+                  <input id="s_cnic" placeholder="CNIC / B-Form">
+                  <input id="s_dob" placeholder="Date of Birth">
+                </div>
+
+                <div class="form-row two">
+                  <input id="s_phone" placeholder="WhatsApp Number">
+                  <input id="s_emergency" placeholder="Emergency Number">
+                </div>
+
+                <div class="form-row two">
+                  <select id="s_course">
+                    <option>BIT</option><option>CIT</option><option>DIT</option><option>MS OFFICE</option>
+                    <option>WEB DEVELOPMENT</option><option>INTERNET</option><option>GRAPHIC DESIGNING</option>
+                  </select>
+                  <input id="s_duration" placeholder="Duration (months)">
+                </div>
+
+                <div class="form-row two">
+                  <input id="s_start" placeholder="Starting Date">
+                  <input id="s_education" placeholder="Previous Education">
+                </div>
+
+                <div class="form-row">
+                  <input id="s_address" placeholder="Address">
+                </div>
+
+                <div class="form-actions" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                  <button id="saveBtn" class="btn">Save Student</button>
+                  <button id="resetBtn" class="btn btn-ghost">Reset</button>
+                </div>
+
+                <small style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem; display: block;">Roll number will be auto-generated on save.</small>
+              </div>
+            </section>
+
+            <aside class="card" id="listSection">
+              <div class="card-body">
+                <div class="tools" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                  <input id="search" placeholder="Search by name / roll / course" style="flex: 1;"/>
+                  <select id="filterCourse">
+                    <option value="">All Courses</option>
+                    <option>BIT</option><option>CIT</option><option>DIT</option><option>MS OFFICE</option>
+                    <option>WEB DEVELOPMENT</option><option>INTERNET</option><option>GRAPHIC DESIGNING</option>
+                  </select>
+                </div>
+
+                <div class="table-wrap" style="overflow-x: auto;">
+                  <table id="studentsTable" class="table-container" style="width: 100%;">
+                    <thead>
+                      <tr><th>Roll</th><th>Name</th><th>Course</th><th>Phone</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+
+                <div class="list-actions" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                  <button id="exportCSV" class="btn btn-sm">Export CSV</button>
+                  <button id="exportJSON" class="btn btn-ghost btn-sm">Export JSON</button>
+                  <button id="clearAll" class="btn btn-danger btn-sm">Clear All</button>
+                </div>
+
+                <hr style="margin: 1.5rem 0; border-color: var(--border);"/>
+                <div style="font-size: 0.875rem; color: var(--text-muted);">Notes: Data stored locally in your browser using localStorage.</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div id="printCard" style="position:fixed;left:-9999px;top:-9999px;width:800px;padding:20px;background:white;">
+          <div style="display:flex;gap:14px;align-items:center">
+            <div id="printPhoto" style="width:140px;height:140px;border:1px solid #ddd;object-fit:cover"></div>
+            <div>
+              <h2 id="printName" style="margin:0"></h2>
+              <div id="printRoll" style="margin-top:6px;color:#555"></div>
+              <div id="printCourse" style="margin-top:6px;color:#555"></div>
+              <div id="printPhone" style="margin-top:6px;color:#555"></div>
+            </div>
+          </div>
+          <hr style="margin:10px 0"/>
+          <div id="printAddress" style="color:#444"></div>
+        </div>
+      </div>
+
+      <!-- ANIMATION TAB -->
+      <div id="animation" class="tab-content">
+        <div class="anim-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2>Center Events & Highlights</h2>
+            <p style="color: var(--text-muted);">Photos, short videos and achievements</p>
+          </div>
+          <div class="admin-login" style="display: flex; gap: 0.5rem;">
+            <input type="password" id="animAdminPass" placeholder="Admin password" style="width: 200px;">
+            <button id="animLoginBtn" class="btn">Login</button>
+            <button id="animLogoutBtn" class="btn btn-ghost" style="display:none">Logout</button>
+          </div>
+        </div>
+
+        <div id="adminPanel" style="display:none; margin-bottom: 2rem;">
+          <div class="card">
+            <div class="card-body">
+              <h3 style="margin-bottom: 1.5rem;">Admin: Post New Item</h3>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label">Type</label>
+                <select id="postType">
+                  <option value="photo">Photo</option>
+                  <option value="video">Video</option>
+                  <option value="achievement">Achievement</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label">Title</label>
+                <input id="postTitle" type="text" placeholder="Title">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label">Description</label>
+                <textarea id="postDesc" placeholder="Short description"></textarea>
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label">Choose File</label>
+                <input id="postFile" type="file" accept="image/*,video/*">
+              </div>
+              <div style="display: flex; gap: 1rem;">
+                <button id="postSaveBtn" class="btn">Save Post</button>
+                <button id="clearPostsBtn" class="btn btn-ghost">Clear All Posts</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="anim-sections">
+          <section class="card section" style="margin-bottom: 2rem;">
+            <div class="card-body">
+              <h3 style="margin-bottom: 1.5rem;">Latest Events (Photos)</h3>
+              <div id="photosGrid" class="grid-items" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;"></div>
+            </div>
+          </section>
+
+          <section class="card section" style="margin-bottom: 2rem;">
+            <div class="card-body">
+              <h3 style="margin-bottom: 1.5rem;">Videos</h3>
+              <div id="videosGrid" class="grid-items" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;"></div>
+            </div>
+          </section>
+
+          <section class="card section">
+            <div class="card-body">
+              <h3 style="margin-bottom: 1.5rem;">Achievements Wall</h3>
+              <div id="achieveGrid" class="grid-items" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;"></div>
+            </div>
+          </section>
+        </div>
+
+        <div id="lightbox" class="lightbox" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center;" onclick="closeLightbox()">
+          <div class="lightbox-inner card" style="max-width: 90%; max-height: 90%; overflow: auto;" onclick="event.stopPropagation()">
+            <button class="closeBtn" onclick="closeLightbox()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
+            <div id="lightboxContent"></div>
+            <div id="lightboxCaption" style="color: var(--text-muted); margin-top: 1rem;"></div>
+            <div id="lightboxActions" style="margin-top: 1rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTS TAB -->
+      <div id="tests" class="tab-content">
+        <div class="card" style="max-width: 700px; margin: 0 auto 2rem;">
+          <div class="card-body">
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Student Tests Section</h2>
+            <div class="form-group">
+              <label for="courseSelect" class="form-label">Select Course:</label>
+              <select id="courseSelect">
+                <option value="BIT">BIT</option>
+                <option value="CIT">CIT</option>
+                <option value="DIT">DIT</option>
+                <option value="WebDev">Web Development</option>
+                <option value="Internet">Internet</option>
+                <option value="Graphic">Graphic Designing</option>
+                <option value="Typing">Typing</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="testArea" class="card" style="max-width: 700px; margin: 0 auto 2rem;">
+          <div class="card-body">
+            <h3 style="margin-bottom: 1.5rem;">Test Questions will appear here</h3>
+          </div>
+        </div>
+
+        <div id="typingArea" class="card" style="max-width: 700px; margin: 0 auto 2rem; display:none;">
+          <div class="card-body">
+            <h3 style="margin-bottom: 1.5rem;">Typing Test</h3>
+            <p id="typingText" style="margin-bottom: 1rem;">Type this text as fast as you can...</p>
+            <textarea id="typingInput" placeholder="Start typing here..." style="margin-bottom: 1rem;"></textarea>
+            <button onclick="submitTyping()" class="btn">Submit Typing Test</button>
+            <p id="typingResult" style="margin-top: 1rem;"></p>
+          </div>
+        </div>
+
+        <div class="btn-box" style="text-align: center; margin-bottom: 2rem;">
+          <button onclick="submitTest()" class="btn btn-lg">Submit Test</button>
+        </div>
+
+        <div id="leaderboard" class="card" style="max-width: 700px; margin: 0 auto;">
+          <div class="card-body">
+            <h3 style="margin-bottom: 1.5rem;">Leaderboard (Top 3 Students)</h3>
+            <ul id="leaderboardList" style="list-style: none;">
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">No results yet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIPLOMA TAB -->
+      <div id="diploma" class="tab-content">
+        <div class="diploma-wrap" style="max-width: 1100px; margin: 0 auto;">
+          <h2 style="text-align: center; margin-bottom: 0.5rem;">Diploma Programs</h2>
+          <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Center and Government recognized diploma options</p>
+
+          <div class="diploma-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 2rem;">
+            <article class="d-card card">
+              <div class="card-body">
+                <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                  <h3>Government Diploma</h3>
+                  <span class="badge badge-primary">Board Certified</span>
+                </header>
+                <div style="color: var(--text-secondary); line-height: 1.6;">
+                  <p style="margin-bottom: 0.5rem;"><strong>Eligibility:</strong> Minimum 10th class pass.</p>
+                  <p style="margin-bottom: 0.5rem;"><strong>Duration:</strong> 1 year</p>
+                  <p style="margin-bottom: 1rem;"><strong>Fees:</strong> Rs. 1300</p>
+                  <h4 style="margin: 1.5rem 0 0.5rem; color: var(--text-primary);">Syllabus Highlights</h4>
+                  <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>MS Office (Word, Excel, PowerPoint)</li>
+                    <li>Introduction to Computers</li>
+                    <li>Internet & Email</li>
+                    <li>Basic Programming</li>
+                    <li>Database Basics</li>
+                  </ul>
+                </div>
+                <footer style="display: flex; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                  <button class="btn apply-btn" onclick="applyToRegistration('Government CIT Diploma')" style="flex: 1;">Apply</button>
+                  <button class="btn btn-ghost" onclick="downloadBrochure('Government CIT Diploma')" style="flex: 1;">Brochure</button>
+                </footer>
+              </div>
+            </article>
+
+            <article class="d-card card">
+              <div class="card-body">
+                <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                  <h3>Center Diploma</h3>
+                  <span class="badge badge-primary">IQRA Certificate</span>
+                </header>
+                <div style="color: var(--text-secondary); line-height: 1.6;">
+                  <p style="margin-bottom: 0.5rem;"><strong>Eligibility:</strong> Open to all students</p>
+                  <p style="margin-bottom: 0.5rem;"><strong>Duration:</strong> 2-6 months</p>
+                  <p style="margin-bottom: 1rem;"><strong>Fees:</strong> Starting Rs. 1200</p>
+                  <h4 style="margin: 1.5rem 0 0.5rem; color: var(--text-primary);">Syllabus Highlights</h4>
+                  <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Practical Projects</li>
+                    <li>MS Office, Web Basics</li>
+                    <li>Project Based Assessment</li>
+                    <li>Evening Classes</li>
+                    <li>Weekend Off</li>
+                  </ul>
+                </div>
+                <footer style="display: flex; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                  <button class="btn apply-btn" onclick="applyToRegistration('IQRA Center Diploma')" style="flex: 1;">Apply</button>
+                  <button class="btn btn-ghost" onclick="downloadBrochure('IQRA Center Diploma')" style="flex: 1;">Brochure</button>
+                </footer>
+              </div>
+            </article>
+          </div>
+
+          <div class="d-extra card">
+            <div class="card-body">
+              <h4 style="margin-bottom: 1rem;">How to Apply</h4>
+              <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                <li>Choose the diploma (Government or Center)</li>
+                <li>Click Apply to open registration form</li>
+                <li>Fill student details and submit</li>
+                <li>For Government diploma, center will guide board registration</li>
+              </ol>
+              <h4 style="margin-bottom: 0.5rem;">Contact</h4>
+              <p style="color: var(--text-muted);">Center open evenings only. Saturday & Sunday off.</p>
+              <p style="margin-top: 0.5rem;"><strong>Email:</strong> <a href="mailto:mqbekhang@gmail.com">mqbekhang@gmail.com</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+923218215690">+92 321 8215690</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFO TAB -->
+      <div id="info" class="tab-content">
+        <div class="container" style="max-width: 1100px; margin: 0 auto;">
+          <header class="hero card" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; padding: 3rem; margin-bottom: 2rem;">
+            <div>
+              <h1 style="color: white; margin-bottom: 0.5rem;">IQRA Institute of IT & Technical Education</h1>
+              <p style="color: rgba(255,255,255,0.9);">Established 2024 • Evening classes • City's lowest fees</p>
+            </div>
+            <div style="text-align: right;">
+              <small style="color: rgba(255,255,255,0.8); display: block; margin-bottom: 0.25rem;">Contact</small>
+              <div style="font-weight: 700; font-size: 1.25rem;">+92 321 8215690</div>
+              <small style="color: rgba(255,255,255,0.8);">mqbekhang@gmail.com</small>
+            </div>
+          </header>
+
+          <div class="grid" style="display: grid; grid-template-columns: 1fr 360px; gap: 2rem;">
+            <section>
+              <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-body">
+                  <h2 class="card-title" style="margin-bottom: 1.5rem;">About the Center</h2>
+                  <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+                    IQRA Institute provides practical, project-based IT training since 2024. We focus on small batches, 
+                    hands-on labs and affordable fees so every student can learn and build real projects.
+                  </p>
+
+                  <h3 style="margin-bottom: 1rem;">Courses We Offer</h3>
+                  <div class="courses" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                    <div class="course-card card" style="padding: 1.5rem;">
+                      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="badge" style="width: 48px; height: 48px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">BIT</div>
+                        <div>
+                          <div style="font-weight: 600;">Basic IT</div>
+                          <div style="font-size: 0.875rem; color: var(--text-muted);">₨1200 • 2 months</div>
+                        </div>
+                      </div>
+                      <button class="toggle-btn btn btn-ghost btn-sm" data-target="s1" style="width: 100%;">View syllabus</button>
+                      <div id="s1" class="syllabus" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                        <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem;">
+                          <li>Basic Computer Details</li>
+                          <li>Hardware & Software</li>
+                          <li>Internet Basics</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="course-card card" style="padding: 1.5rem;">
+                      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="badge" style="width: 48px; height: 48px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">CIT</div>
+                        <div>
+                          <div style="font-weight: 600;">Certified IT</div>
+                          <div style="font-size: 0.875rem; color: var(--text-muted);">₨1300 • 3 months</div>
+                        </div>
+                      </div>
+                      <button class="toggle-btn btn btn-ghost btn-sm" data-target="s2" style="width: 100%;">View syllabus</button>
+                      <div id="s2" class="syllabus" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                        <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem;">
+                          <li>Complete BIT</li>
+                          <li>Advanced MS Word</li>
+                          <li>Document Projects</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="course-card card" style="padding: 1.5rem;">
+                      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="badge" style="width: 48px; height: 48px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">DIT</div>
+                        <div>
+                          <div style="font-weight: 600;">Diploma in IT</div>
+                          <div style="font-size: 0.875rem; color: var(--text-muted);">₨1500 • 4 months</div>
+                        </div>
+                      </div>
+                      <button class="toggle-btn btn btn-ghost btn-sm" data-target="s3" style="width: 100%;">View syllabus</button>
+                      <div id="s3" class="syllabus" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                        <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem;">
+                          <li>CIT Complete</li>
+                          <li>Full MS Office</li>
+                          <li>Photoshop Basics</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="course-card card" style="padding: 1.5rem;">
+                      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="badge" style="width: 48px; height: 48px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">WEB</div>
+                        <div>
+                          <div style="font-weight: 600;">Web Development</div>
+                          <div style="font-size: 0.875rem; color: var(--text-muted);">₨2000 • 6 months</div>
+                        </div>
+                      </div>
+                      <button class="toggle-btn btn btn-ghost btn-sm" data-target="s4" style="width: 100%;">View syllabus</button>
+                      <div id="s4" class="syllabus" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                        <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem;">
+                          <li>HTML & CSS</li>
+                          <li>JavaScript</li>
+                          <li>Responsive Design</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3 style="margin: 2rem 0 1rem;">Center Facilities</h3>
+                  <div class="facilities" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+                    <div class="fac-item card" style="padding: 1rem; text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+                      <i class="fas fa-desktop" style="display: block; margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--accent);"></i>
+                      Computer Lab
+                    </div>
+                    <div class="fac-item card" style="padding: 1rem; text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+                      <i class="fas fa-wifi" style="display: block; margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--accent);"></i>
+                      High-speed Internet
+                    </div>
+                    <div class="fac-item card" style="padding: 1rem; text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+                      <i class="fas fa-project-diagram" style="display: block; margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--accent);"></i>
+                      Project Training
+                    </div>
+                    <div class="fac-item card" style="padding: 1rem; text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+                      <i class="fas fa-certificate" style="display: block; margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--accent);"></i>
+                      Certificate
+                    </div>
+                  </div>
+
+                  <h3 style="margin: 2rem 0 1rem;">Why Choose Us?</h3>
+                  <div class="why-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                    <div class="why-item card" style="padding: 1rem; font-weight: 500;">
+                      <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                      Lowest fees in city
+                    </div>
+                    <div class="why-item card" style="padding: 1rem; font-weight: 500;">
+                      <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                      Practical classes
+                    </div>
+                    <div class="why-item card" style="padding: 1rem; font-weight: 500;">
+                      <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                      Experienced teachers
+                    </div>
+                    <div class="why-item card" style="padding: 1rem; font-weight: 500;">
+                      <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                      Small batches
+                    </div>
+                  </div>
+
+                  <h3 style="margin: 2rem 0 1rem;">Our Team</h3>
+                  <div class="teacher card" style="display: flex; align-items: center; gap: 1rem; padding: 1rem;">
+                    <img src="2.png" alt="Teacher" style="width: 60px; height: 60px; border-radius: var(--radius-lg); object-fit: cover;">
+                    <div>
+                      <div style="font-weight: 600;">Mr. Shabeer Hussain</div>
+                      <div style="font-size: 0.875rem; color: var(--text-muted);">Principal / Lead Instructor — 8+ years</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <aside class="sidebar-info">
+              <div class="card" style="position: sticky; top: 100px;">
+                <div class="card-body">
+                  <h3 class="card-title" style="margin-bottom: 1.5rem;">Quick Info</h3>
+                  <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><strong>Timing:</strong> Evening (Sham)</p>
+                  <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><strong>Weekly Off:</strong> Saturday & Sunday</p>
+                  <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><strong>Established:</strong> 2024</p>
+                  <p style="margin-bottom: 1.5rem; color: var(--text-secondary);"><strong>Contact:</strong> +92 321 8215690</p>
+                  
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <button class="btn" onclick="scrollToReg()">Register Now</button>
+                    <button class="btn btn-ghost" onclick="window.location.href='mailto:mqbekhang@gmail.com'">Email Center</button>
+                  </div>
+                  
+                  <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem;">Downloads</h4>
+                  <ul style="list-style: none; color: var(--text-muted); font-size: 0.875rem;">
+                    <li style="margin-bottom: 0.25rem;">• Prospectus (coming soon)</li>
+                    <li>• Course Outline (PDF) — soon</li>
+                  </ul>
+                  
+                  <h4 style="margin: 1.5rem 0 0.5rem; font-size: 0.875rem;">Address</h4>
+                  <p style="color: var(--text-muted); font-size: 0.875rem;">Near SunRise Middle Public School, Manjhi Pur</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <footer style="text-align: center; margin-top: 3rem; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; border-top: 1px solid var(--border);">
+            © <span id="year"></span> IQRA Institute — Manjhi Pur
+          </footer>
+        </div>
+      </div>
+
+      <!-- CONTACT TAB -->
+      <div id="contact" class="tab-content">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+          <div class="card-header">
+            <h2 class="card-title">Contact With Center</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-row" style="margin-bottom: 1rem;">
+              <input type="text" id="c_name" placeholder="Full Name">
+            </div>
+            <div class="form-row" style="margin-bottom: 1rem;">
+              <input type="text" id="c_fname" placeholder="Father Name">
+            </div>
+            <div class="form-row" style="margin-bottom: 1rem;">
+              <input type="text" id="c_phone" placeholder="Phone Number">
+            </div>
+            <div class="form-row" style="margin-bottom: 1rem;">
+              <input type="text" id="c_work" placeholder="Work / Occupation">
+            </div>
+            <textarea id="c_message" placeholder="Write Your Message" style="margin-bottom: 1rem;"></textarea>
+            <button class="btn" onclick="sendContactEmail()" style="width: 100%;">Send to Center Email</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- REGISTRATION TAB -->
+      <div id="reg" class="tab-content">
+        <div class="reg-box card" id="formBox" style="max-width: 800px; margin: 0 auto;">
+          <div class="card-header">
+            <h2 class="card-title">Student Registration Form</h2>
+          </div>
+          <div class="card-body">
+            <label class="form-label">Student Photo</label>
+            <div class="upload-preview" id="previewBox" style="width: 120px; height: 120px; border: 2px dashed var(--border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--text-muted); margin-bottom: 1rem;">Upload<br>Photo</div>
+            <input type="file" id="photo" accept="image/*" onchange="loadPhoto(event)" style="margin-bottom: 1.5rem;">
+
+            <div class="form-row two" style="margin-bottom: 1rem;">
+              <input type="text" id="name" placeholder="Full Name">
+              <input type="text" id="fname" placeholder="Father Name">
+            </div>
+
+            <div class="form-row two" style="margin-bottom: 1rem;">
+              <input type="text" id="cnic" placeholder="CNIC / B-Form">
+              <input type="text" id="dob" placeholder="Date of Birth">
+            </div>
+
+            <div class="form-row two" style="margin-bottom: 1rem;">
+              <input type="text" id="whatsapp" placeholder="WhatsApp Number">
+              <input type="text" id="emergency" placeholder="Emergency Number">
+            </div>
+
+            <div class="form-row two" style="margin-bottom: 1rem;">
+              <input type="text" id="email" placeholder="Email (optional)">
+              <input type="text" id="address" placeholder="Full Address">
+            </div>
+
+            <label class="form-label">Select Course</label>
+            <select id="course" style="margin-bottom: 1rem;">
+              <option>BIT</option>
+              <option>CIT</option>
+              <option>DIT</option>
+              <option>MS OFFICE</option>
+              <option>WEB DEVELOPMENT</option>
+              <option>INTERNET</option>
+              <option>GRAPHIC DESIGNING</option>
+            </select>
+
+            <div class="form-row two" style="margin-bottom: 1rem;">
+              <input type="text" id="duration" placeholder="Course Duration (Months)">
+              <input type="text" value="Evening (Sham)" disabled style="background: var(--bg-secondary);">
+            </div>
+
+            <div class="form-row two" style="margin-bottom: 1.5rem;">
+              <input type="text" id="start" placeholder="Starting Date">
+              <input type="text" id="education" placeholder="Previous Education">
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; cursor: pointer;">
+              <input type="checkbox"> I agree to the terms and conditions
+            </label>
+
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn download-btn" onclick="downloadForm()" style="flex: 1;">Download Registration (JPG)</button>
+              <button class="btn email-btn" onclick="sendEmail()" style="flex: 1;">Send to Center Email</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PICTURES TAB -->
+      <div id="pictures" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Center Pictures</h2>
+          </div>
+          <div class="card-body">
+            <div class="pic-gallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem;">
+              <div class="pic-box card" onclick="openFull('1.jpg')" style="height: 250px; overflow: hidden; cursor: pointer;">
+                <img src="1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="pic-box card" onclick="openFull('2.jpg')" style="height: 250px; overflow: hidden; cursor: pointer;">
+                <img src="3.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="pic-box card" onclick="openFull('3.jpg')" style="height: 250px; overflow: hidden; cursor: pointer;">
+                <img src="4.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="pic-box card" onclick="openFull('4.jpg')" style="height: 250px; overflow: hidden; cursor: pointer;">
+                <img src="5.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="fullView" class="full-view" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; flex-direction: column;">
+          <button class="close-btn" onclick="closeFull()" style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">×</button>
+          <img id="fullImg" style="max-width: 90%; max-height: 80%; border-radius: var(--radius-xl);">
+          <a id="downloadBtn" class="download-pic btn" download style="margin-top: 2rem;">Download</a>
+        </div>
+      </div>
+
+      <!-- VIDEO TAB -->
+      <div id="video" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Videos</h2>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--text-muted); text-align: center; padding: 3rem;">Video content coming soon...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS TAB -->
+      <div id="projects" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Projects</h2>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--text-muted); text-align: center; padding: 3rem;">Student projects showcase coming soon...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Settings Panel -->
+<div class="settings-overlay" id="settingsOverlay"></div>
+<div class="settings-panel card" id="settingsPanel">
+  <div class="settings-header">
+    <h2 class="settings-title">Settings</h2>
+    <button class="settings-close" id="settingsClose">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <div class="settings-body">
+    <!-- Themes -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-palette"></i> Theme Presets
+      </div>
+      <div class="settings-grid">
+        <div class="setting-item active" data-theme="ocean">
+          <div class="setting-icon" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);"></div>
+          <div class="setting-label">Ocean</div>
+          <div class="setting-desc">Default blue theme</div>
+        </div>
+        <div class="setting-item" data-theme="forest">
+          <div class="setting-icon" style="background: linear-gradient(135deg, #10b981, #34d399);"></div>
+          <div class="setting-label">Forest</div>
+          <div class="setting-desc">Green nature theme</div>
+        </div>
+        <div class="setting-item" data-theme="sunset">
+          <div class="setting-icon" style="background: linear-gradient(135deg, #f97316, #fb923c);"></div>
+          <div class="setting-label">Sunset</div>
+          <div class="setting-desc">Warm orange theme</div>
+        </div>
+        <div class="setting-item" data-theme="berry">
+          <div class="setting-icon" style="background: linear-gradient(135deg, #a855f7, #c084fc);"></div>
+          <div class="setting-label">Berry</div>
+          <div class="setting-desc">Purple creative theme</div>
+        </div>
+        <div class="setting-item" data-theme="midnight">
+          <div class="setting-icon" style="background: linear-gradient(135deg, #6366f1, #818cf8);"></div>
+          <div class="setting-label">Midnight</div>
+          <div class="setting-desc">Dark professional</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appearance -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-eye"></i> Appearance
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Dark Mode</span>
+        <div class="toggle-switch" id="darkModeToggle"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Compact Mode</span>
+        <div class="toggle-switch" id="compactModeToggle"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Glassmorphism</span>
+        <div class="toggle-switch" id="glassModeToggle"></div>
+      </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-columns"></i> Layout
+      </div>
+      <div class="range-wrapper">
+        <div class="range-label">
+          <span>Sidebar Width</span>
+          <span class="range-value" id="sidebarWidthValue">280px</span>
+        </div>
+        <input type="range" id="sidebarWidth" min="200" max="350" value="280">
+      </div>
+      <div class="range-wrapper">
+        <div class="range-label">
+          <span>Border Radius</span>
+          <span class="range-value" id="radiusValue">Medium</span>
+        </div>
+        <input type="range" id="borderRadius" min="0" max="3" value="2" step="1">
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Sticky Header</span>
+        <div class="toggle-switch active" id="stickyHeaderToggle"></div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-font"></i> Typography
+      </div>
+      <div class="range-wrapper">
+        <div class="range-label">
+          <span>Font Size</span>
+          <span class="range-value" id="fontSizeValue">Base</span>
+        </div>
+        <input type="range" id="fontSize" min="14" max="18" value="16">
+      </div>
+      <div class="range-wrapper">
+        <div class="range-label">
+          <span>Line Height</span>
+          <span class="range-value" id="lineHeightValue">Normal</span>
+        </div>
+        <input type="range" id="lineHeight" min="1.2" max="1.8" value="1.5" step="0.1">
+      </div>
+    </div>
+
+    <!-- Effects -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-magic"></i> Effects
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Animations</span>
+        <div class="toggle-switch active" id="animationsToggle"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Hover Effects</span>
+        <div class="toggle-switch active" id="hoverEffectsToggle"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Shadows</span>
+        <div class="toggle-switch active" id="shadowsToggle"></div>
+      </div>
+      <div class="range-wrapper">
+        <div class="range-label">
+          <span>Animation Speed</span>
+          <span class="range-value" id="animSpeedValue">Normal</span>
+        </div>
+        <input type="range" id="animSpeed" min="0" max="2" value="1" step="1">
+      </div>
+    </div>
+
+    <!-- Colors -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-tint"></i> Accent Color
+      </div>
+      <div class="color-grid" id="accentColors">
+        <div class="color-option active" data-color="#3b82f6" style="background: #3b82f6;"></div>
+        <div class="color-option" data-color="#10b981" style="background: #10b981;"></div>
+        <div class="color-option" data-color="#f97316" style="background: #f97316;"></div>
+        <div class="color-option" data-color="#a855f7" style="background: #a855f7;"></div>
+        <div class="color-option" data-color="#ef4444" style="background: #ef4444;"></div>
+        <div class="color-option" data-color="#ec4899" style="background: #ec4899;"></div>
+        <div class="color-option" data-color="#06b6d4" style="background: #06b6d4;"></div>
+        <div class="color-option" data-color="#84cc16" style="background: #84cc16;"></div>
+        <div class="color-option" data-color="#f59e0b" style="background: #f59e0b;"></div>
+        <div class="color-option" data-color="#6366f1" style="background: #6366f1;"></div>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <div class="settings-section">
+      <div class="settings-section-title">
+        <i class="fas fa-cogs"></i> Advanced
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Reduced Motion</span>
+        <div class="toggle-switch" id="reducedMotionToggle"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">High Contrast</span>
+        <div class="toggle-switch" id="highContrastToggle"></div>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Custom Scrollbar</span>
+        <div class="toggle-switch active" id="customScrollToggle"></div>
+      </div>
+      <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-lg);">
+        <button class="btn btn-secondary" id="resetSettings" style="width: 100%;">
+          <i class="fas fa-undo"></i> Reset to Defaults
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ==========================================
+// SETTINGS SYSTEM
+// ==========================================
+
+const SettingsManager = {
+  defaults: {
+    theme: 'ocean',
+    darkMode: false,
+    compactMode: false,
+    glassMode: false,
+    sidebarWidth: 280,
+    borderRadius: 2,
+    stickyHeader: true,
+    fontSize: 16,
+    lineHeight: 1.5,
+    animations: true,
+    hoverEffects: true,
+    shadows: true,
+    animSpeed: 1,
+    accentColor: '#3b82f6',
+    reducedMotion: false,
+    highContrast: false,
+    customScroll: true
+  },
+  
+  current: {},
+  
+  init() {
+    this.load();
+    this.apply();
+    this.bindEvents();
+  },
+  
+  load() {
+    const saved = localStorage.getItem('iqraSettings');
+    this.current = saved ? {...this.defaults, ...JSON.parse(saved)} : {...this.defaults};
+  },
+  
+  save() {
+    localStorage.setItem('iqraSettings', JSON.stringify(this.current));
+  },
+  
+  apply() {
+    const root = document.documentElement;
+    const body = document.body;
+    
+    // Theme
+    document.documentElement.setAttribute('data-theme', this.current.theme);
+    
+    // Dark Mode
+    document.documentElement.setAttribute('data-mode', this.current.darkMode ? 'dark' : 'light');
+    
+    // Compact Mode
+    body.classList.toggle('compact-mode', this.current.compactMode);
+    if (this.current.compactMode) {
+      root.style.setProperty('--space-4', '0.5rem');
+      root.style.setProperty('--space-6', '1rem');
+    } else {
+      root.style.setProperty('--space-4', '1rem');
+      root.style.setProperty('--space-6', '1.5rem');
+    }
+    
+    // Glassmorphism
+    body.classList.toggle('glass-mode', this.current.glassMode);
+    
+    // Sidebar Width
+    root.style.setProperty('--sidebar-width', this.current.sidebarWidth + 'px');
+    
+    // Border Radius
+    const radiusMap = ['0px', '4px', '8px', '16px'];
+    const radiusLabels = ['Sharp', 'Soft', 'Medium', 'Round'];
+    root.style.setProperty('--radius-lg', radiusMap[this.current.borderRadius]);
+    document.getElementById('radiusValue').textContent = radiusLabels[this.current.borderRadius];
+    
+    // Font Size
+    root.style.fontSize = this.current.fontSize + 'px';
+    document.getElementById('fontSizeValue').textContent = this.current.fontSize + 'px';
+    
+    // Line Height
+    root.style.setProperty('--line-height-normal', this.current.lineHeight);
+    document.getElementById('lineHeightValue').textContent = this.current.lineHeight;
+    
+    // Animations
+    body.classList.toggle('no-animations', !this.current.animations);
+    
+    // Animation Speed
+    const speedMap = ['0ms', '150ms', '300ms', '500ms'];
+    const speedLabels = ['Instant', 'Fast', 'Normal', 'Slow'];
+    root.style.setProperty('--duration-fast', speedMap[this.current.animSpeed]);
+    document.getElementById('animSpeedValue').textContent = speedLabels[this.current.animSpeed];
+    
+    // Shadows
+    body.classList.toggle('no-shadows', !this.current.shadows);
+    
+    // Accent Color
+    root.style.setProperty('--accent', this.current.accentColor);
+    root.style.setProperty('--accent-rgb', this.hexToRgb(this.current.accentColor));
+    
+    // Reduced Motion
+    body.classList.toggle('reduced-motion', this.current.reducedMotion);
+    
+    // High Contrast
+    body.classList.toggle('high-contrast', this.current.highContrast);
+    
+    // Custom Scrollbar
+    body.classList.toggle('no-custom-scroll', !this.current.customScroll);
+    
+    this.save();
+  },
+  
+  hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '59, 130, 246';
+  },
+  
+  set(key, value) {
+    this.current[key] = value;
+    this.apply();
+    this.showToast('Setting Updated', `${key} changed successfully`);
+  },
+  
+  reset() {
+    this.current = {...this.defaults};
+    this.apply();
+    this.updateUI();
+    this.showToast('Settings Reset', 'All settings restored to defaults');
+  },
+  
+  showToast(title, message) {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+      <div class="toast-icon"><i class="fas fa-check"></i></div>
+      <div class="toast-content">
+        <div class="toast-title">${title}</div>
+        <div class="toast-message">${message}</div>
+      </div>
+    `;
+    container.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.add('hiding');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  },
+  
+  updateUI() {
+    // Update all toggle switches
+    document.getElementById('darkModeToggle').classList.toggle('active', this.current.darkMode);
+    document.getElementById('compactModeToggle').classList.toggle('active', this.current.compactMode);
+    document.getElementById('glassModeToggle').classList.toggle('active', this.current.glassMode);
+    document.getElementById('stickyHeaderToggle').classList.toggle('active', this.current.stickyHeader);
+    document.getElementById('animationsToggle').classList.toggle('active', this.current.animations);
+    document.getElementById('hoverEffectsToggle').classList.toggle('active', this.current.hoverEffects);
+    document.getElementById('shadowsToggle').classList.toggle('active', this.current.shadows);
+    document.getElementById('reducedMotionToggle').classList.toggle('active', this.current.reducedMotion);
+    document.getElementById('highContrastToggle').classList.toggle('active', this.current.highContrast);
+    document.getElementById('customScrollToggle').classList.toggle('active', this.current.customScroll);
+    
+    // Update ranges
+    document.getElementById('sidebarWidth').value = this.current.sidebarWidth;
+    document.getElementById('borderRadius').value = this.current.borderRadius;
+    document.getElementById('fontSize').value = this.current.fontSize;
+    document.getElementById('lineHeight').value = this.current.lineHeight;
+    document.getElementById('animSpeed').value = this.current.animSpeed;
+    
+    // Update theme selection
+    document.querySelectorAll('[data-theme]').forEach(el => {
+      el.classList.toggle('active', el.dataset.theme === this.current.theme);
+    });
+    
+    // Update color selection
+    document.querySelectorAll('.color-option').forEach(el => {
+      el.classList.toggle('active', el.dataset.color === this.current.accentColor);
+    });
+  },
+  
+  bindEvents() {
+    // Settings Panel Toggle
+    const settingsBtn = document.getElementById('settingsBtn');
+    const settingsPanel = document.getElementById('settingsPanel');
+    const settingsOverlay = document.getElementById('settingsOverlay');
+    const settingsClose = document.getElementById('settingsClose');
+    
+    function openSettings() {
+      settingsPanel.classList.add('active');
+      settingsOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeSettings() {
+      settingsPanel.classList.remove('active');
+      settingsOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    settingsBtn.addEventListener('click', openSettings);
+    settingsClose.addEventListener('click', closeSettings);
+    settingsOverlay.addEventListener('click', closeSettings);
+    
+    // Theme Selection
+    document.querySelectorAll('[data-theme]').forEach(item => {
+      item.addEventListener('click', () => {
+        this.set('theme', item.dataset.theme);
+        this.updateUI();
+      });
+    });
+    
+    // Toggles
+    const toggles = {
+      'darkModeToggle': 'darkMode',
+      'compactModeToggle': 'compactMode',
+      'glassModeToggle': 'glassMode',
+      'stickyHeaderToggle': 'stickyHeader',
+      'animationsToggle': 'animations',
+      'hoverEffectsToggle': 'hoverEffects',
+      'shadowsToggle': 'shadows',
+      'reducedMotionToggle': 'reducedMotion',
+      'highContrastToggle': 'highContrast',
+      'customScrollToggle': 'customScroll'
+    };
+    
+    Object.entries(toggles).forEach(([id, key]) => {
+      document.getElementById(id).addEventListener('click', (e) => {
+        e.target.classList.toggle('active');
+        this.set(key, e.target.classList.contains('active'));
+      });
+    });
+    
+    // Range Inputs
+    document.getElementById('sidebarWidth').addEventListener('input', (e) => {
+      this.set('sidebarWidth', parseInt(e.target.value));
+      document.getElementById('sidebarWidthValue').textContent = e.target.value + 'px';
+    });
+    
+    document.getElementById('borderRadius').addEventListener('input', (e) => {
+      this.set('borderRadius', parseInt(e.target.value));
+    });
+    
+    document.getElementById('fontSize').addEventListener('input', (e) => {
+      this.set('fontSize', parseInt(e.target.value));
+    });
+    
+    document.getElementById('lineHeight').addEventListener('input', (e) => {
+      this.set('lineHeight', parseFloat(e.target.value));
+    });
+    
+    document.getElementById('animSpeed').addEventListener('input', (e) => {
+      this.set('animSpeed', parseInt(e.target.value));
+    });
+    
+    // Color Selection
+    document.querySelectorAll('.color-option').forEach(option => {
+      option.addEventListener('click', () => {
+        this.set('accentColor', option.dataset.color);
+        this.updateUI();
+      });
+    });
+    
+    // Reset
+    document.getElementById('resetSettings').addEventListener('click', () => {
+      this.reset();
+    });
+    
+    this.updateUI();
+  }
+};
+
+// Initialize Settings
+SettingsManager.init();
+
+// ==========================================
+// NAVIGATION SYSTEM
+// ==========================================
+
+const tabButtons = document.querySelectorAll('.nav-item');
+const tabContents = document.querySelectorAll('.tab-content');
+const pageTitle = document.getElementById('pageTitle');
+
+const pageNames = {
+  home: 'Dashboard',
+  insert: 'Student Management',
+  animation: 'Media Gallery',
+  tests: 'Student Tests',
+  diploma: 'Diploma Programs',
+  info: 'Information',
+  contact: 'Contact',
+  reg: 'Registration',
+  pictures: 'Picture Gallery',
+  video: 'Videos',
+  projects: 'Projects'
+};
+
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    
+    // Update active states
+    tabButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Show content
+    tabContents.forEach(c => c.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+    
+    // Update title
+    pageTitle.textContent = pageNames[tab] || 'Dashboard';
+    
+    // Close sidebar on mobile
+    if (window.innerWidth <= 1024) {
+      document.getElementById('sidebar').classList.remove('open');
+    }
+  });
+});
+
+// Handle nav-item-btn clicks (inside content)
+document.querySelectorAll('.nav-item-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    const navBtn = document.querySelector(`.nav-item[data-tab="${tab}"]`);
+    if (navBtn) navBtn.click();
+  });
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+mobileMenuBtn.addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('open');
+});
+
+// Show mobile menu button on small screens
+window.addEventListener('resize', () => {
+  mobileMenuBtn.style.display = window.innerWidth <= 1024 ? 'flex' : 'none';
+});
+if (window.innerWidth <= 1024) mobileMenuBtn.style.display = 'flex';
+
+// ==========================================
+// ORIGINAL FUNCTIONALITY (Preserved)
+// ==========================================
+
+// Diploma functions
+function applyToRegistration(diplomaName) {
+  localStorage.setItem('apply_diploma', diplomaName);
+  document.querySelector('.nav-item[data-tab="reg"]').click();
+}
+
+function downloadBrochure(title) {
+  const content = `${title}\n\nIQRA Institute - Diploma Brochure\n\nContact: mqbekhang@gmail.com\nPhone: +92 321 8215690`;
+  const blob = new Blob([content], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = title.replace(/\s+/g,'_') + '_brochure.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Picture functions
+function openFull(imgSrc) {
+  document.getElementById('fullView').style.display = 'flex';
+  document.getElementById('fullImg').src = imgSrc;
+  document.getElementById('downloadBtn').href = imgSrc;
+}
+
+function closeFull() {
+  document.getElementById('fullView').style.display = 'none';
+}
+
+// Contact function
+function sendContactEmail() {
+  const name = document.getElementById('c_name').value;
+  const fname = document.getElementById('c_fname').value;
+  const phone = document.getElementById('c_phone').value;
+  const work = document.getElementById('c_work').value;
+  const message = document.getElementById('c_message').value;
+  
+  const body = `Name: ${name}\nFather: ${fname}\nPhone: ${phone}\nWork: ${work}\n\nMessage:\n${message}`;
+  window.location.href = `mailto:mqbekhang@gmail.com?subject=Contact from ${name}&body=${encodeURIComponent(body)}`;
+}
+
+// Registration functions
+function loadPhoto(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const img = document.createElement('img');
+  img.src = URL.createObjectURL(file);
+  img.style.width = '100%';
+  img.style.height = '100%';
+  img.style.objectFit = 'cover';
+  const preview = document.getElementById('previewBox');
+  preview.innerHTML = '';
+  preview.appendChild(img);
+}
+
+function downloadForm() {
+  html2canvas(document.querySelector('#formBox')).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'Registration_Form.jpg';
+    link.href = canvas.toDataURL('image/jpeg', 1.0);
+    link.click();
+  });
+}
+
+function sendEmail() {
+  const fields = ['name', 'fname', 'cnic', 'dob', 'whatsapp', 'emergency', 'email', 'address', 'course', 'duration', 'start', 'education'];
+  const values = {};
+  fields.forEach(f => values[f] = document.getElementById(f)?.value || '');
+  
+  const body = Object.entries(values).map(([k, v]) => `${k}: ${v}`).join('\n');
+  window.location.href = `mailto:mqbekhang@gmail.com?subject=Registration: ${values.name}&body=${encodeURIComponent(body)}`;
+}
+
+function scrollToReg() {
+  document.querySelector('.nav-item[data-tab="reg"]').click();
+}
+
+// Toggle syllabus
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.target);
+    if (target) {
+      const isOpen = target.style.display === 'block';
+      target.style.display = isOpen ? 'none' : 'block';
+      btn.textContent = isOpen ? 'View syllabus ▾' : 'Hide syllabus ▴';
+    }
+  });
+});
+
+// Year update
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Admin Panel (Insert Tab)
+const ADMIN_PASSWORD = 'admin123';
+const STORAGE_KEY = 'iqra_students_v1';
+
+document.getElementById('loginBtn')?.addEventListener('click', () => {
+  const pass = document.getElementById('adminPassword').value;
+  if (pass === ADMIN_PASSWORD) {
+    document.getElementById('loginModal').style.display = 'none';
+    initApp();
+  } else {
+    alert('Wrong password!');
+  }
+});
+
+document.getElementById('logoutBtn')?.addEventListener('click', () => {
+  location.reload();
+});
+
+function initApp() {
+  renderTable();
+  bindUI();
+}
+
+function uid() {
+  return Math.floor(Math.random() * 9000) + 1000;
+}
+
+function genRoll() {
+  const y = new Date().getFullYear();
+  return `IQ-${y}-${uid()}`;
+}
+
+function readStorage() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+function writeStorage(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function bindUI() {
+  const photoInput = document.getElementById('photoInput');
+  const photoPreview = document.getElementById('photoPreview');
+  
+  photoInput?.addEventListener('change', (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      photoPreview.innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;">`;
+      photoPreview.dataset.image = ev.target.result;
+    };
+    reader.readAsDataURL(f);
+  });
+
+  document.getElementById('saveBtn')?.addEventListener('click', saveStudent);
+  document.getElementById('resetBtn')?.addEventListener('click', clearForm);
+  document.getElementById('search')?.addEventListener('input', renderTable);
+  document.getElementById('filterCourse')?.addEventListener('change', renderTable);
+  document.getElementById('exportCSV')?.addEventListener('click', exportCSV);
+  document.getElementById('exportJSON')?.addEventListener('click', exportJSON);
+  document.getElementById('clearAll')?.addEventListener('click', () => {
+    if (confirm('Clear all students?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderTable();
+    }
+  });
+}
+
+function saveStudent() {
+  const student = {
+    roll: genRoll(),
+    name: document.getElementById('s_name').value.trim(),
+    fname: document.getElementById('s_fname').value.trim(),
+    cnic: document.getElementById('s_cnic').value.trim(),
+    dob: document.getElementById('s_dob').value.trim(),
+    phone: document.getElementById('s_phone').value.trim(),
+    emergency: document.getElementById('s_emergency').value.trim(),
+    course: document.getElementById('s_course').value,
+    duration: document.getElementById('s_duration').value.trim(),
+    start: document.getElementById('s_start').value.trim(),
+    education: document.getElementById('s_education').value.trim(),
+    address: document.getElementById('s_address').value.trim(),
+    photo: document.getElementById('photoPreview').dataset.image || ''
+  };
+  
+  if (!student.name || !student.phone) {
+    alert('Name and phone are required.');
+    return;
+  }
+  
+  const all = readStorage();
+  all.push(student);
+  writeStorage(all);
+  clearForm();
+  renderTable();
+  alert('Saved successfully!');
+}
+
+function clearForm() {
+  ['s_name', 's_fname', 's_cnic', 's_dob', 's_phone', 's_emergency', 's_duration', 's_start', 's_education', 's_address'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  const preview = document.getElementById('photoPreview');
+  if (preview) {
+    preview.innerHTML = 'No Photo';
+    delete preview.dataset.image;
+  }
+}
+
+function renderTable() {
+  const tbody = document.querySelector('#studentsTable tbody');
+  if (!tbody) return;
+  
+  tbody.innerHTML = '';
+  const all = readStorage();
+  const q = document.getElementById('search')?.value.trim().toLowerCase() || '';
+  const f = document.getElementById('filterCourse')?.value || '';
+  
+  const list = all.filter(s => {
+    if (f && s.course !== f) return false;
+    if (!q) return true;
+    return (s.name?.toLowerCase().includes(q)) ||
+           (s.roll?.toLowerCase().includes(q)) ||
+           (s.course?.toLowerCase().includes(q));
+  });
+  
+  if (list.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text-muted);">No students found</td></tr>';
+    return;
+  }
+  
+  list.forEach(s => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${s.roll}</td>
+      <td>${s.name}</td>
+      <td><span class="badge badge-primary">${s.course}</span></td>
+      <td>${s.phone}</td>
+      <td>
+        <button class="btn btn-sm" onclick='previewStudent("${s.roll}")'>View</button>
+        <button class="btn btn-ghost btn-sm" onclick='editStudent("${s.roll}")'>Edit</button>
+        <button class="btn btn-sm" onclick='downloadCard("${s.roll}")'>JPG</button>
+        <button class="btn btn-danger btn-sm" onclick='deleteStudent("${s.roll}")'>Del</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function previewStudent(roll) {
+  const s = readStorage().find(x => x.roll === roll);
+  if (!s) return;
+  alert(`Name: ${s.name}\nRoll: ${s.roll}\nCourse: ${s.course}\nPhone: ${s.phone}`);
+}
+
+function editStudent(roll) {
+  const s = readStorage().find(x => x.roll === roll);
+  if (!s) return;
+  
+  Object.keys(s).forEach(key => {
+    const el = document.getElementById('s_' + key);
+    if (el) el.value = s[key];
+  });
+  
+  if (s.photo) {
+    const preview = document.getElementById('photoPreview');
+    preview.innerHTML = `<img src="${s.photo}" style="width:100%;height:100%;object-fit:cover;">`;
+    preview.dataset.image = s.photo;
+  }
+  
+  document.getElementById('formTitle').textContent = 'Edit Student — ' + roll;
+}
+
+function deleteStudent(roll) {
+  if (!confirm('Delete student ' + roll + '?')) return;
+  const all = readStorage().filter(s => s.roll !== roll);
+  writeStorage(all);
+  renderTable();
+}
+
+function exportCSV() {
+  const all = readStorage();
+  if (!all.length) return alert('No students.');
+  const rows = [['Roll', 'Name', 'Father', 'Course', 'Phone', 'CNIC', 'Start', 'Duration']];
+  all.forEach(s => rows.push([s.roll, s.name, s.fname, s.course, s.phone, s.cnic, s.start, s.duration]));
+  const csv = rows.map(r => r.map(c => `"${String(c || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'students.csv';
+  a.click();
+}
+
+function exportJSON() {
+  const all = readStorage();
+  const a = document.createElement('a');
+  a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(all, null, 2));
+  a.download = 'students.json';
+  a.click();
+}
+
+function downloadCard(roll) {
+  const s = readStorage().find(x => x.roll === roll);
+  if (!s) return;
+  
+  document.getElementById('printName').textContent = s.name;
+  document.getElementById('printRoll').textContent = s.roll;
+  document.getElementById('printCourse').textContent = s.course + ' • ' + s.duration;
+  document.getElementById('printPhone').textContent = 'Phone: ' + s.phone;
+  document.getElementById('printAddress').textContent = s.address || '';
+  
+  const ph = document.getElementById('printPhoto');
+  ph.innerHTML = s.photo ? `<img src="${s.photo}" style="width:140px;height:140px;object-fit:cover;">` : 'No Photo';
+  
+  html2canvas(document.getElementById('printCard'), {scale: 2}).then(canvas => {
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 1.0);
+    link.download = `${s.roll}_registration.jpg`;
+    link.click();
+  });
+}
+
+// Tests System
+const courseTests = {
+  BIT: [
+    { q: "What does BIT stand for?", options: ["Binary IT", "Basic Information Technology", "Business IT"], answer: 1 },
+    { q: "Which is an input device?", options: ["Monitor", "Keyboard", "Printer"], answer: 1 }
+  ],
+  CIT: [
+    { q: "CIT includes learning?", options: ["MS Word", "Excel", "Both"], answer: 2 },
+    { q: "CIT course duration?", options: ["1 month", "3 months", "6 months"], answer: 1 }
+  ],
+  DIT: [
+    { q: "DIT includes?", options: ["Photoshop", "Gmail", "Both"], answer: 2 }
+  ],
+  WebDev: [
+    { q: "HTML stands for?", options: ["HyperText Markup Language", "HighText Markup Language", "Hyper Tool Markup Language"], answer: 0 },
+    { q: "CSS is used for?", options: ["Structure", "Styling", "Logic"], answer: 1 }
+  ],
+  Internet: [
+    { q: "WWW stands for?", options: ["World Wide Web", "Web Wide World", "World Web Wide"], answer: 0 }
+  ],
+  Graphic: [
+    { q: "Canva is used for?", options: ["Graphic Designing", "Typing", "Web Coding"], answer: 0 }
+  ],
+  Typing: []
+};
+
+let leaderboard = { BIT: [], CIT: [], DIT: [], WebDev: [], Internet: [], Graphic: [], Typing: [] };
+
+const courseSelect = document.getElementById('courseSelect');
+const testArea = document.getElementById('testArea');
+const typingArea = document.getElementById('typingArea');
+
+courseSelect?.addEventListener('change', () => {
+  const course = courseSelect.value;
+  if (course === 'Typing') {
+    typingArea.style.display = 'block';
+    testArea.style.display = 'none';
+  } else {
+    typingArea.style.display = 'none';
+    testArea.style.display = 'block';
+    displayQuestions(course);
+  }
+  showLeaderboard(course);
+});
+
+function displayQuestions(course) {
+  const questions = courseTests[course] || [];
+  let html = '';
+  questions.forEach((q, i) => {
+    html += `<div style="margin-bottom: 1.5rem;"><p style="font-weight: 500; margin-bottom: 0.75rem;">${i+1}. ${q.q}</p>`;
+    q.options.forEach((opt, j) => {
+      html += `<label style="display: block; margin-bottom: 0.5rem; cursor: pointer; padding: 0.5rem; border-radius: var(--radius); transition: background var(--duration-fast);"><input type="radio" name="q${i}" value="${j}" style="margin-right: 0.75rem;"> ${opt}</label>`;
+    });
+    html += '</div>';
+  });
+  testArea.querySelector('.card-body').innerHTML = html || '<p>No questions available.</p>';
+  // Re-add the heading
+  const heading = document.createElement('h3');
+  heading.style.marginBottom = '1.5rem';
+  heading.textContent = 'Test Questions';
+  testArea.querySelector('.card-body').prepend(heading);
+}
+
+function submitTest() {
+  const course = courseSelect.value;
+  if (course === 'Typing') return;
+  const questions = courseTests[course];
+  let score = 0;
+  questions.forEach((q, i) => {
+    const ans = document.querySelector(`input[name="q${i}"]:checked`);
+    if (ans && parseInt(ans.value) === q.answer) score++;
+  });
+  const name = prompt('Enter Student Name:');
+  if (name) {
+    leaderboard[course].push({name, score});
+    leaderboard[course].sort((a, b) => b.score - a.score);
+    if (leaderboard[course].length > 3) leaderboard[course].pop();
+    alert(`Score: ${score}/${questions.length}`);
+    showLeaderboard(course);
+  }
+}
+
+function submitTyping() {
+  const text = document.getElementById('typingText').innerText;
+  const input = document.getElementById('typingInput').value;
+  const score = Math.round((input.length / text.length) * 100);
+  const name = prompt('Enter Student Name:');
+  if (name) {
+    leaderboard.Typing.push({name, score});
+    leaderboard.Typing.sort((a, b) => b.score - a.score);
+    if (leaderboard.Typing.length > 3) leaderboard.Typing.pop();
+    document.getElementById('typingResult').textContent = `Score: ${score}%`;
+    showLeaderboard('Typing');
+  }
+}
+
+function showLeaderboard(course) {
+  const list = document.getElementById('leaderboardList');
+  const top = leaderboard[course];
+  if (!top?.length) {
+    list.innerHTML = '<li style="padding: 0.75rem 0; color: var(--text-muted);">No results yet</li>';
+  } else {
+    list.innerHTML = top.map((s, i) => 
+      `<li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+        <span>${i+1}. ${s.name}</span>
+        <span style="font-weight: 600; color: var(--accent);">${s.score}${course==='Typing'?'%':''}</span>
+      </li>`
+    ).join('');
+  }
+}
+
+// Animation Tab Functions
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+
+// Initialize
+displayQuestions('BIT');
+showLeaderboard('BIT');
+</script>
+
+</body>
+</html>
